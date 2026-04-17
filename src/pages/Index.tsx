@@ -2,6 +2,7 @@ import Hero from "@/components/harpio/Hero";
 import InnovationJourney from "@/components/harpio/InnovationJourney";
 import Ecosystem from "@/components/harpio/Ecosystem";
 import MarketReading from "@/components/harpio/MarketReading";
+import Services from "@/components/harpio/Services";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       <InnovationJourney />
       <Ecosystem />
       <MarketReading />
+      <Services />
       {/* Próximas seções serão adicionadas aqui em sequência */}
     </main>
   );
