@@ -1,72 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Harpio design system — dark slate + Montserrat */
+/* Harpio design system — light + violet */
 
 @layer base {
   :root {
-    /* Core surfaces (slate-900 / 800 / 700) */
-    --background: 222 47% 11%;         /* #0f172a */
-    --foreground: 220 14% 90%;         /* #e5e7eb */
+    /* Surfaces */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 8%;
 
-    --surface: 217 33% 17%;            /* #1e293b */
-    --surface-hover: 215 25% 27%;      /* #334155 */
-    --border-subtle: 215 25% 27%;      /* #334155 */
+    --surface: 240 20% 98%;
+    --surface-muted: 240 14% 96%;
 
-    --card: 217 33% 17%;
-    --card-foreground: 220 14% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
 
-    --popover: 217 33% 17%;
-    --popover-foreground: 220 14% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
 
-    --primary: 142 71% 45%;            /* #22c55e — accent verde */
-    --primary-foreground: 222 47% 11%;
+    /* Brand — vibrant violet to magenta */
+    --primary: 270 91% 58%;            /* #8B5CF6 -> #A855F7 family */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 90% 65%;
+    --primary-deep: 262 83% 48%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 220 14% 90%;
+    --accent-magenta: 320 90% 60%;     /* gradient end */
+    --accent-pink: 340 90% 60%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --secondary: 240 14% 96%;
+    --secondary-foreground: 240 10% 8%;
 
-    --accent: 215 25% 27%;
-    --accent-foreground: 220 14% 90%;
+    --muted: 240 14% 96%;
+    --muted-foreground: 240 5% 45%;
+
+    --accent: 270 91% 95%;
+    --accent-foreground: 270 91% 30%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 215 25% 27%;
-    --input: 215 25% 27%;
-    --ring: 142 71% 45%;
+    --border: 240 14% 92%;
+    --border-strong: 240 10% 85%;
+    --input: 240 14% 92%;
+    --ring: 270 91% 58%;
 
     --radius: 1rem;
 
-    /* Badge palettes (from doc) */
-    --badge-green-bg: 158 64% 20%;     /* #065f46 */
-    --badge-blue-bg: 224 76% 40%;      /* #1e40af */
-    --badge-yellow-bg: 28 85% 26%;     /* #78350f */
+    /* Dark surfaces for contrast cards (mockups, code blocks) */
+    --dark-card: 240 25% 10%;
+    --dark-card-foreground: 240 14% 96%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%), hsl(217 33% 17%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 71% 45%), hsl(158 64% 40%));
+    --gradient-primary: linear-gradient(135deg, hsl(270 91% 58%), hsl(320 90% 60%));
+    --gradient-text: linear-gradient(135deg, hsl(270 91% 58%) 0%, hsl(340 90% 60%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(270 100% 98%) 100%);
+    --gradient-hero-bg: radial-gradient(ellipse at top right, hsl(270 91% 95%) 0%, transparent 60%),
+                        radial-gradient(ellipse at bottom left, hsl(320 90% 96%) 0%, transparent 50%);
 
     /* Shadows */
-    --shadow-card: 0 10px 30px -12px hsl(222 47% 5% / 0.6);
-    --shadow-glow: 0 0 40px hsl(142 71% 45% / 0.15);
+    --shadow-soft: 0 1px 3px hsl(240 10% 8% / 0.04), 0 4px 12px hsl(240 10% 8% / 0.04);
+    --shadow-card: 0 4px 20px -4px hsl(270 50% 30% / 0.08), 0 2px 6px hsl(240 10% 8% / 0.04);
+    --shadow-elevated: 0 20px 60px -20px hsl(270 60% 30% / 0.18), 0 8px 24px -8px hsl(240 10% 8% / 0.08);
+    --shadow-glow: 0 0 60px hsl(270 91% 58% / 0.25);
+    --shadow-button: 0 4px 14px hsl(270 91% 58% / 0.4);
 
-    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 220 14% 90%;
-    --sidebar-primary: 142 71% 45%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 220 14% 90%;
-    --sidebar-border: 215 25% 27%;
-    --sidebar-ring: 142 71% 45%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 8%;
+    --sidebar-primary: 270 91% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 14% 96%;
+    --sidebar-accent-foreground: 240 10% 8%;
+    --sidebar-border: 240 14% 92%;
+    --sidebar-ring: 270 91% 58%;
   }
 }
 
@@ -81,11 +91,26 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04';
   }
 
   h1, h2, h3, h4 {
-    @apply font-semibold tracking-tight;
+    @apply font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-hero {
+    background: var(--gradient-hero-bg), hsl(var(--background));
   }
 }
