@@ -1,20 +1,13 @@
 import { Star } from "lucide-react";
 import HarpioLogo from "./HarpioLogo";
-import ClientLogo from "./ClientLogo";
 
-interface HeroProps {
-  clientName?: string;
-}
-
-const Hero = ({ clientName = "Citrosuco" }: HeroProps) => {
+const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-hero">
       <div className="container max-w-[1240px] px-5 pb-24 pt-12 md:pb-32 md:pt-16">
-        {/* Logos */}
+        {/* Logo */}
         <div className="mb-16 flex items-center gap-5 md:mb-24">
           <HarpioLogo />
-          <div className="h-7 w-px bg-border-strong" />
-          <ClientLogo name={clientName} />
         </div>
 
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
@@ -26,7 +19,7 @@ const Hero = ({ clientName = "Citrosuco" }: HeroProps) => {
             </h1>
             <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
               O poder do modelo híbrido, combinando IA e expertise humana para
-              impulsionar resultados na <strong className="font-semibold text-foreground">{clientName}</strong>.
+              impulsionar resultados nas empresas que buscam os melhores talentos.
             </p>
 
             {/* Divider */}
