@@ -96,147 +96,89 @@ const Services = () => {
             <span className="text-gradient">decisão de talento</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground md:text-lg">
-            Quatro frentes integradas — do hunting executivo à inteligência de mercado — para
-            orquestrar contratações com precisão cirúrgica e velocidade real.
+            Um processo orquestrado em 4 ATOS — do mapeamento estratégico ao placement —
+            para garantir contratações de alta precisão, velocidade real e retenção.
           </p>
         </div>
 
-        {/* 4 service pillars */}
+        {/* 4 ATOS grid */}
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((p) => {
-            const Icon = p.icon;
+          {atos.map((a) => {
+            const Icon = a.icon;
             return (
               <article
-                key={p.id}
+                key={a.id}
                 className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-card transition-smooth hover:-translate-y-1 hover:border-primary/40 hover:shadow-elegant"
               >
                 <div
-                  className={`pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${p.accent} opacity-10 blur-2xl transition-smooth group-hover:opacity-25`}
+                  className={`pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${a.accent} opacity-10 blur-2xl transition-smooth group-hover:opacity-25`}
                 />
-                <div
-                  className={`relative mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${p.accent} text-white shadow-button`}
-                >
-                  <Icon className="h-5 w-5" />
+                <div className="relative flex items-start justify-between">
+                  <div
+                    className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${a.accent} text-white shadow-button`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span
+                    className={`bg-gradient-to-br ${a.accent} bg-clip-text text-3xl font-extrabold tracking-tight text-transparent`}
+                  >
+                    {a.number}
+                  </span>
                 </div>
-                <div className="relative text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  {p.eyebrow}
+                <div className="relative mt-5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  {a.number === "04" ? "ATO FINAL" : `${a.number} ATO`}
                 </div>
-                <h3 className="relative mt-1 text-xl font-bold text-foreground">{p.title}</h3>
-                <p className="relative mt-1.5 text-sm text-muted-foreground">{p.subtitle}</p>
+                <h3 className="relative mt-1 text-xl font-bold text-foreground">{a.title}</h3>
+                <p className="relative mt-1.5 text-sm text-muted-foreground">{a.subtitle}</p>
                 <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {p.description}
+                  {a.description}
                 </p>
-                <div className="relative mt-5 flex flex-wrap gap-1.5 border-t border-border pt-4">
-                  {p.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-medium text-accent-foreground"
-                    >
-                      {h}
-                    </span>
-                  ))}
+                <div className="relative mt-5 border-t border-border pt-4">
+                  <ul className="space-y-2">
+                    {a.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-sm text-foreground">
+                        <span
+                          className={`mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${a.accent} text-white`}
+                        >
+                          <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                        </span>
+                        <span className="leading-snug">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-accent-foreground">
+                    <Users className="h-3 w-3" />
+                    {a.count}
+                  </div>
                 </div>
               </article>
             );
           })}
         </div>
 
-        {/* Featured: Expert Hunting deep-dive */}
-        <div className="mt-16">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-card md:p-12">
-            <div className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 opacity-[0.12] blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 opacity-[0.10] blur-3xl" />
-
-            {/* Top header */}
-            <div className="relative grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500/15 to-fuchsia-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                  <Crosshair className="h-3.5 w-3.5" />
-                  High-Touch Recruitment
+        {/* Journey flow */}
+        <div className="mt-12 rounded-2xl border border-dashed border-border bg-card/60 p-5 backdrop-blur">
+          <div className="mb-3 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            Fluxo dos 4 ATOS
+          </div>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-foreground md:text-sm">
+            {journey.map((step, idx) => (
+              <div key={step} className="flex items-center gap-3">
+                <span
+                  className={
+                    idx === journey.length - 1
+                      ? "text-gradient font-bold"
+                      : "text-foreground"
+                  }
+                >
+                  {step}
                 </span>
-                <h3 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">
-                  Expert <span className="text-gradient">Hunting</span>
-                </h3>
-                <p className="mt-3 max-w-xl text-base text-muted-foreground">
-                  Metodologia proprietária de busca ativa para posições estratégicas. Transformamos
-                  dados de mercado em contratações de alta precisão.
-                </p>
+                {idx < journey.length - 1 && (
+                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+                )}
               </div>
-
-              {/* KPIs */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-border bg-background/60 p-5 text-center backdrop-blur">
-                  <div className="text-3xl font-extrabold text-gradient md:text-4xl">15<span className="ml-1 text-base font-semibold text-muted-foreground">dias</span></div>
-                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">SLA Médio</div>
-                </div>
-                <div className="rounded-2xl border border-border bg-background/60 p-5 text-center backdrop-blur">
-                  <div className="text-3xl font-extrabold text-gradient md:text-4xl">95<span className="text-base font-semibold text-muted-foreground">%</span></div>
-                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Retenção</div>
-                </div>
-              </div>
-            </div>
-
-            {/* 3-step columns */}
-            <div className="relative mt-10 grid gap-5 md:grid-cols-3">
-              {expertSteps.map((step, idx) => {
-                const Icon = step.icon;
-                return (
-                  <div
-                    key={step.title}
-                    className="group relative rounded-2xl border border-border bg-background/60 p-6 backdrop-blur transition-smooth hover:border-primary/40 hover:bg-background"
-                  >
-                    <div className="mb-4 flex items-center justify-between">
-                      <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white shadow-button">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <span className="text-[11px] font-bold text-muted-foreground">
-                        0{idx + 1}
-                      </span>
-                    </div>
-                    <h4 className="text-lg font-bold text-foreground">{step.title}</h4>
-                    <div className="mt-1 inline-block rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-accent-foreground">
-                      {step.badge}
-                    </div>
-                    <ul className="mt-4 space-y-2">
-                      {step.items.map((it) => (
-                        <li key={it} className="flex items-start gap-2 text-sm text-foreground">
-                          <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white">
-                            <Check className="h-2.5 w-2.5" strokeWidth={3} />
-                          </span>
-                          <span className="leading-snug">{it}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Journey flow */}
-            <div className="relative mt-10 rounded-2xl border border-dashed border-border bg-background/40 p-5 backdrop-blur">
-              <div className="mb-3 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                <Users className="h-3.5 w-3.5 text-primary" />
-                Jornada do Candidato
-              </div>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-foreground md:text-sm">
-                {journey.map((step, idx) => (
-                  <div key={step} className="flex items-center gap-3">
-                    <span
-                      className={
-                        idx === journey.length - 1
-                          ? "text-gradient font-bold"
-                          : "text-foreground"
-                      }
-                    >
-                      {step}
-                    </span>
-                    {idx < journey.length - 1 && (
-                      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
