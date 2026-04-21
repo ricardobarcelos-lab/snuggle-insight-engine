@@ -1,117 +1,83 @@
 import {
-  Crosshair,
-  LineChart,
-  Rocket,
-  Compass,
   ArrowRight,
   Check,
   Sparkles,
-  Target,
+  Map,
   Users,
-  Award,
-  Search,
+  PhoneCall,
+  ClipboardList,
+  HandshakeIcon,
+  FileSignature,
 } from "lucide-react";
 
-type Pillar = {
+type Ato = {
   id: string;
-  eyebrow: string;
+  number: string;
   title: string;
   subtitle: string;
   description: string;
-  icon: typeof Crosshair;
+  icon: typeof Map;
   accent: string;
   highlights: string[];
+  count: string;
 };
 
-const pillars: Pillar[] = [
+const atos: Ato[] = [
   {
-    id: "expert-hunting",
-    eyebrow: "High-Touch Recruitment",
-    title: "Expert Hunting",
-    subtitle: "Busca ativa para posições estratégicas",
+    id: "ato-1",
+    number: "01",
+    title: "Mapeamento Estratégico",
+    subtitle: "Candidatos interessados e aderentes",
     description:
-      "Metodologia proprietária para C-Level, diretoria e posições críticas — alta precisão em cada etapa.",
-    icon: Crosshair,
+      "Hunting ativo em bases proprietárias e mercado, qualificando perfis aderentes ao DNA da vaga e validando interesse real na oportunidade.",
+    icon: Map,
     accent: "from-violet-500 to-fuchsia-500",
-    highlights: ["C-Level & Diretoria", "Shortlist 3-5", "SLA 15 dias"],
+    highlights: ["Pesquisa de mercado", "Validação de interesse", "Fit técnico & cultural"],
+    count: "20 profissionais",
   },
   {
-    id: "market-intel",
-    eyebrow: "Intelligence Unit",
-    title: "Inteligência de Mercado",
-    subtitle: "Estratégia de talentos e tendências",
+    id: "ato-2",
+    number: "02",
+    title: "Pré-entrevista Qualificada",
+    subtitle: "Script validado pelo cliente",
     description:
-      "Diagnóstico de competitividade, benchmark salarial e mapeamento de skills para decisões orientadas por dado.",
-    icon: LineChart,
+      "Conduzimos entrevistas estruturadas com roteiro co-criado com o cliente, garantindo profundidade técnica, fit cultural e aderência aos requisitos críticos.",
+    icon: PhoneCall,
     accent: "from-fuchsia-500 to-pink-500",
-    highlights: ["Benchmark vs Top 3", "Gap de Skills", "Employer Brand"],
+    highlights: ["Script co-criado", "Avaliação por competência", "Relatório por candidato"],
+    count: "10 profissionais",
   },
   {
-    id: "sprint",
-    eyebrow: "Speed & Volume",
-    title: "Sprint",
-    subtitle: "Consultoria focada nas habilidades da vaga",
+    id: "ato-3",
+    number: "03",
+    title: "Shortlist & Negociação",
+    subtitle: "Headhunter expert conduzindo o processo",
     description:
-      "Sprints de 2-4 semanas para vagas de média complexidade com perfis abertos ou blindados.",
-    icon: Rocket,
+      "Shortlist final composta e conduzida por headhunter especialista na área. Negociação com o candidato finalista, alinhamento de proposta e fechamento.",
+    icon: ClipboardList,
     accent: "from-pink-500 to-rose-500",
-    highlights: ["2-4 semanas", "Perfis abertos/blindados", "Garantia de entrevistas"],
+    highlights: ["Headhunter dedicado", "Shortlist 3-5", "Negociação de oferta"],
+    count: "4 profissionais",
   },
   {
-    id: "career",
-    eyebrow: "Career Service",
-    title: "Transição Profissional",
-    subtitle: "Outplacement e recolocação",
+    id: "ato-4",
+    number: "04",
+    title: "Placement",
+    subtitle: "Termos finais e contratação",
     description:
-      "Acompanhamento humano e de IA para transições estratégicas e recolocação executiva acelerada.",
-    icon: Compass,
+      "Formalização dos termos finais do contrato, onboarding assistido e acompanhamento pós-contratação para garantir retenção e sucesso na posição.",
+    icon: FileSignature,
     accent: "from-rose-500 to-orange-500",
-    highlights: ["Mentoria 1:1", "Marca pessoal", "Network ativo"],
-  },
-];
-
-const expertSteps = [
-  {
-    icon: Target,
-    title: "Calibração de Perfil",
-    badge: "100% Alinhamento",
-    items: [
-      "Deep diving na cultura organizacional",
-      "Mapeamento de requisitos técnicos",
-      "Definição de soft skills prioritárias",
-      "Alinhamento de faixa salarial",
-    ],
-  },
-  {
-    icon: Search,
-    title: "Hunting Ativo",
-    badge: "150+ Perfis/Sprint",
-    items: [
-      "Busca em bases proprietárias",
-      "Abordagem direta de competidores",
-      "Ativação de networking estratégico",
-      "Mapeamento de lideranças do setor",
-    ],
-  },
-  {
-    icon: Award,
-    title: "Deep Assessment",
-    badge: "Top 3-5 Shortlist",
-    items: [
-      "Entrevistas por competência",
-      "Avaliação de fit cultural",
-      "Validação técnica especializada",
-      "Análise de potencial de crescimento",
-    ],
+    highlights: ["Termos contratuais", "Onboarding assistido", "Garantia de retenção"],
+    count: "1 placement",
   },
 ];
 
 const journey = [
-  "Identificamos os melhores",
-  "Entrevistas profundas",
-  "Validação técnica",
-  "Negociação de oferta",
-  "Contratação garantida",
+  "Mapeamento estratégico",
+  "Pré-entrevista qualificada",
+  "Shortlist & negociação",
+  "Placement",
 ];
 
 const Services = () => {
