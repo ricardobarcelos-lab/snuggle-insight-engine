@@ -5,6 +5,7 @@ import MarketReading from "@/components/harpio/MarketReading";
 import Services from "@/components/harpio/Services";
 import Technology from "@/components/harpio/Technology";
 import Investment from "@/components/harpio/Investment";
+import Simulator from "@/components/harpio/Simulator";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Services />
       <Technology />
       <Investment />
+      <Simulator />
     </main>
   );
 };
