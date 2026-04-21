@@ -6,7 +6,6 @@ import {
   Users,
   PhoneCall,
   ClipboardList,
-  HandshakeIcon,
   FileSignature,
 } from "lucide-react";
 
