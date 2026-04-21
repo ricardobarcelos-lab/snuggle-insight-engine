@@ -1,74 +1,117 @@
-import { Map, Zap, UserSearch, Trophy, ArrowRight, Check } from "lucide-react";
+import {
+  Crosshair,
+  LineChart,
+  Rocket,
+  Compass,
+  ArrowRight,
+  Check,
+  Sparkles,
+  Target,
+  Users,
+  Award,
+  Search,
+} from "lucide-react";
 
-const acts = [
+type Pillar = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: typeof Crosshair;
+  accent: string;
+  highlights: string[];
+};
+
+const pillars: Pillar[] = [
   {
-    number: "01",
-    label: "1º ATO",
-    title: "Strategic Mapping",
-    subtitle: "Competition",
-    icon: Map,
+    id: "expert-hunting",
+    eyebrow: "High-Touch Recruitment",
+    title: "Expert Hunting",
+    subtitle: "Busca ativa para posições estratégicas",
     description:
-      "Imersão profunda no setor, na concorrência e na vaga para construir um mapa preciso de onde estão os melhores talentos.",
-    deliverables: [
-      "Análise setorial e tendências de contratação",
-      "Mapeamento de 10+ players concorrentes",
-      "Análise crítica da Job Description",
-      "20 profissionais com aderência >70%",
-    ],
+      "Metodologia proprietária para C-Level, diretoria e posições críticas — alta precisão em cada etapa.",
+    icon: Crosshair,
     accent: "from-violet-500 to-fuchsia-500",
-    glow: "shadow-[0_20px_60px_-20px_hsl(270_91%_58%/0.5)]",
+    highlights: ["C-Level & Diretoria", "Shortlist 3-5", "SLA 15 dias"],
   },
   {
-    number: "02",
-    label: "2º ATO",
-    title: "Approach & Screening",
-    subtitle: "Sprint",
-    icon: Zap,
+    id: "market-intel",
+    eyebrow: "Intelligence Unit",
+    title: "Inteligência de Mercado",
+    subtitle: "Estratégia de talentos e tendências",
     description:
-      "Abordagem consultiva e ágil que ativa talentos passivos de alto nível, eliminando ghosting e triagem demorada.",
-    deliverables: [
-      "Acesso a talent pool exclusivo",
-      "Engajamento profissional e estratégico",
-      "Entrevista garantida ou investimento de volta",
-      "Até 10x mais econômico que consultorias",
-    ],
+      "Diagnóstico de competitividade, benchmark salarial e mapeamento de skills para decisões orientadas por dado.",
+    icon: LineChart,
     accent: "from-fuchsia-500 to-pink-500",
-    glow: "shadow-[0_20px_60px_-20px_hsl(320_90%_60%/0.5)]",
+    highlights: ["Benchmark vs Top 3", "Gap de Skills", "Employer Brand"],
   },
   {
-    number: "03",
-    label: "3º ATO",
-    title: "Interview",
-    subtitle: "HeadHunter Expert",
-    icon: UserSearch,
+    id: "sprint",
+    eyebrow: "Speed & Volume",
+    title: "Sprint",
+    subtitle: "Consultoria focada nas habilidades da vaga",
     description:
-      "Curadoria profunda com especialistas seniores que entregam shortlist enxuta de candidatos validados em todas as dimensões.",
-    deliverables: [
-      "Calibração de perfil — 100% alinhamento",
-      "Hunting ativo: 150+ perfis por sprint",
-      "Deep assessment técnico e comportamental",
-      "Top 3-5 shortlist com fit cultural validado",
-    ],
+      "Sprints de 2-4 semanas para vagas de média complexidade com perfis abertos ou blindados.",
+    icon: Rocket,
     accent: "from-pink-500 to-rose-500",
-    glow: "shadow-[0_20px_60px_-20px_hsl(340_90%_60%/0.5)]",
+    highlights: ["2-4 semanas", "Perfis abertos/blindados", "Garantia de entrevistas"],
   },
   {
-    number: "04",
-    label: "4º ATO",
-    title: "Placement",
-    subtitle: "Contratação Garantida",
-    icon: Trophy,
+    id: "career",
+    eyebrow: "Career Service",
+    title: "Transição Profissional",
+    subtitle: "Outplacement e recolocação",
     description:
-      "Acompanhamento até a assinatura e onboarding, com garantia de reposição conforme a faixa contratada.",
-    deliverables: [
-      "Acompanhamento de proposta e negociação",
-      "Suporte no onboarding do contratado",
-      "Garantia de reposição por permanência",
-      "Relacionamento contínuo pós-contratação",
-    ],
+      "Acompanhamento humano e de IA para transições estratégicas e recolocação executiva acelerada.",
+    icon: Compass,
     accent: "from-rose-500 to-orange-500",
-    glow: "shadow-[0_20px_60px_-20px_hsl(15_90%_60%/0.5)]",
+    highlights: ["Mentoria 1:1", "Marca pessoal", "Network ativo"],
   },
+];
+
+const expertSteps = [
+  {
+    icon: Target,
+    title: "Calibração de Perfil",
+    badge: "100% Alinhamento",
+    items: [
+      "Deep diving na cultura organizacional",
+      "Mapeamento de requisitos técnicos",
+      "Definição de soft skills prioritárias",
+      "Alinhamento de faixa salarial",
+    ],
+  },
+  {
+    icon: Search,
+    title: "Hunting Ativo",
+    badge: "150+ Perfis/Sprint",
+    items: [
+      "Busca em bases proprietárias",
+      "Abordagem direta de competidores",
+      "Ativação de networking estratégico",
+      "Mapeamento de lideranças do setor",
+    ],
+  },
+  {
+    icon: Award,
+    title: "Deep Assessment",
+    badge: "Top 3-5 Shortlist",
+    items: [
+      "Entrevistas por competência",
+      "Avaliação de fit cultural",
+      "Validação técnica especializada",
+      "Análise de potencial de crescimento",
+    ],
+  },
+];
+
+const journey = [
+  "Identificamos os melhores",
+  "Entrevistas profundas",
+  "Validação técnica",
+  "Negociação de oferta",
+  "Contratação garantida",
 ];
 
 const Services = () => {
@@ -79,91 +122,157 @@ const Services = () => {
       <div className="container relative max-w-[1240px] px-5">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="mb-4 inline-block rounded-full bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent-foreground shadow-soft">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent-foreground shadow-soft">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
             Nossos Serviços
           </span>
           <h2 className="text-3xl text-foreground md:text-4xl lg:text-5xl">
-            Quatro atos para uma{" "}
-            <span className="text-gradient">contratação extraordinária</span>
+            Soluções completas para cada{" "}
+            <span className="text-gradient">decisão de talento</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground md:text-lg">
-            Uma metodologia estruturada em 4 atos complementares — cada um com escopo, entregáveis e garantias claras.
+            Quatro frentes integradas — do hunting executivo à inteligência de mercado — para
+            orquestrar contratações com precisão cirúrgica e velocidade real.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          {acts.map((act) => {
-            const Icon = act.icon;
+        {/* 4 service pillars */}
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((p) => {
+            const Icon = p.icon;
             return (
               <article
-                key={act.number}
-                className={`group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-card transition-smooth hover:-translate-y-1 hover:border-primary/30 hover:${act.glow}`}
+                key={p.id}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-card transition-smooth hover:-translate-y-1 hover:border-primary/40 hover:shadow-elegant"
               >
-                {/* Decorative gradient corner */}
                 <div
-                  className={`pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br ${act.accent} opacity-10 blur-2xl transition-smooth group-hover:opacity-20`}
+                  className={`pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${p.accent} opacity-10 blur-2xl transition-smooth group-hover:opacity-25`}
                 />
-
-                {/* Header row */}
-                <div className="relative mb-6 flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${act.accent} text-white shadow-button`}
-                    >
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        {act.label}
-                      </div>
-                      <div className="text-sm font-medium text-muted-foreground">
-                        {act.subtitle}
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={`bg-gradient-to-br ${act.accent} bg-clip-text text-5xl font-extrabold leading-none text-transparent`}
-                  >
-                    {act.number}
-                  </div>
+                <div
+                  className={`relative mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${p.accent} text-white shadow-button`}
+                >
+                  <Icon className="h-5 w-5" />
                 </div>
-
-                {/* Title + description */}
-                <h3 className="relative mb-3 text-2xl font-bold text-foreground md:text-[26px]">
-                  {act.title}
-                </h3>
-                <p className="relative mb-6 text-sm leading-relaxed text-muted-foreground">
-                  {act.description}
+                <div className="relative text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  {p.eyebrow}
+                </div>
+                <h3 className="relative mt-1 text-xl font-bold text-foreground">{p.title}</h3>
+                <p className="relative mt-1.5 text-sm text-muted-foreground">{p.subtitle}</p>
+                <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {p.description}
                 </p>
-
-                {/* Deliverables */}
-                <ul className="relative space-y-2.5 border-t border-border pt-5">
-                  {act.deliverables.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                      <span
-                        className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${act.accent} text-white`}
-                      >
-                        <Check className="h-3 w-3" strokeWidth={3} />
-                      </span>
-                      <span className="leading-snug">{item}</span>
-                    </li>
+                <div className="relative mt-5 flex flex-wrap gap-1.5 border-t border-border pt-4">
+                  {p.highlights.map((h) => (
+                    <span
+                      key={h}
+                      className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-medium text-accent-foreground"
+                    >
+                      {h}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </article>
             );
           })}
         </div>
 
-        {/* Footer flow indicator */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          <span>Strategic Mapping</span>
-          <ArrowRight className="h-3.5 w-3.5" />
-          <span>Sprint</span>
-          <ArrowRight className="h-3.5 w-3.5" />
-          <span>HeadHunter Expert</span>
-          <ArrowRight className="h-3.5 w-3.5" />
-          <span className="text-gradient font-bold">Placement</span>
+        {/* Featured: Expert Hunting deep-dive */}
+        <div className="mt-16">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-card md:p-12">
+            <div className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 opacity-[0.12] blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 opacity-[0.10] blur-3xl" />
+
+            {/* Top header */}
+            <div className="relative grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500/15 to-fuchsia-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                  <Crosshair className="h-3.5 w-3.5" />
+                  High-Touch Recruitment
+                </span>
+                <h3 className="mt-4 text-3xl font-bold text-foreground md:text-4xl">
+                  Expert <span className="text-gradient">Hunting</span>
+                </h3>
+                <p className="mt-3 max-w-xl text-base text-muted-foreground">
+                  Metodologia proprietária de busca ativa para posições estratégicas. Transformamos
+                  dados de mercado em contratações de alta precisão.
+                </p>
+              </div>
+
+              {/* KPIs */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-border bg-background/60 p-5 text-center backdrop-blur">
+                  <div className="text-3xl font-extrabold text-gradient md:text-4xl">15<span className="ml-1 text-base font-semibold text-muted-foreground">dias</span></div>
+                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">SLA Médio</div>
+                </div>
+                <div className="rounded-2xl border border-border bg-background/60 p-5 text-center backdrop-blur">
+                  <div className="text-3xl font-extrabold text-gradient md:text-4xl">95<span className="text-base font-semibold text-muted-foreground">%</span></div>
+                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Retenção</div>
+                </div>
+              </div>
+            </div>
+
+            {/* 3-step columns */}
+            <div className="relative mt-10 grid gap-5 md:grid-cols-3">
+              {expertSteps.map((step, idx) => {
+                const Icon = step.icon;
+                return (
+                  <div
+                    key={step.title}
+                    className="group relative rounded-2xl border border-border bg-background/60 p-6 backdrop-blur transition-smooth hover:border-primary/40 hover:bg-background"
+                  >
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white shadow-button">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-[11px] font-bold text-muted-foreground">
+                        0{idx + 1}
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-foreground">{step.title}</h4>
+                    <div className="mt-1 inline-block rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-accent-foreground">
+                      {step.badge}
+                    </div>
+                    <ul className="mt-4 space-y-2">
+                      {step.items.map((it) => (
+                        <li key={it} className="flex items-start gap-2 text-sm text-foreground">
+                          <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white">
+                            <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                          </span>
+                          <span className="leading-snug">{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Journey flow */}
+            <div className="relative mt-10 rounded-2xl border border-dashed border-border bg-background/40 p-5 backdrop-blur">
+              <div className="mb-3 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <Users className="h-3.5 w-3.5 text-primary" />
+                Jornada do Candidato
+              </div>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-foreground md:text-sm">
+                {journey.map((step, idx) => (
+                  <div key={step} className="flex items-center gap-3">
+                    <span
+                      className={
+                        idx === journey.length - 1
+                          ? "text-gradient font-bold"
+                          : "text-foreground"
+                      }
+                    >
+                      {step}
+                    </span>
+                    {idx < journey.length - 1 && (
+                      <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
