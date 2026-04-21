@@ -3,13 +3,6 @@ import { Calculator, Sparkles, ShieldCheck, Users } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { pricingTiers, brlFormat, atoSplits } from "@/data/harpio";
 
-const candidatesPerAto: Record<string, number> = {
-  ato1: 20,
-  ato2: 10,
-  ato3: 4,
-  ato4: 1,
-};
-
 const MIN_SAL = 2000;
 const MAX_SAL = 50000;
 
