@@ -1,7 +1,14 @@
 import { useMemo, useState } from "react";
-import { Calculator, Sparkles, ShieldCheck, TrendingUp } from "lucide-react";
+import { Calculator, Sparkles, ShieldCheck, Users } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { pricingTiers, brlFormat, atoSplits } from "@/data/harpio";
+
+const candidatesPerAto: Record<string, number> = {
+  ato1: 20,
+  ato2: 10,
+  ato3: 4,
+  ato4: 1,
+};
 
 const MIN_SAL = 2000;
 const MAX_SAL = 50000;
@@ -21,9 +28,12 @@ const Simulator = () => {
     { ...atoSplits[3], value: tier.ato4 },
   ];
 
-  const traditionalCost = Math.round(salary * 3);
-  const savings = traditionalCost - tier.total;
-  const savingsPct = Math.max(0, Math.round((savings / traditionalCost) * 100));
+  const perCandidate = [
+    { key: "ato1", label: "1º ATO", title: "Strategic Mapping", count: 20, total: tier.ato1, note: "Contrate quantos quiser" },
+    { key: "ato2", label: "2º ATO", title: "Approach & Screening", count: 10, total: tier.ato2, note: "Contrate quantos quiser" },
+    { key: "ato3", label: "3º ATO", title: "Interview", count: 4, total: tier.ato3, note: "Shortlist final" },
+    { key: "ato4", label: "4º ATO", title: "Placement", count: 1, total: tier.ato4, note: "Contratação efetiva" },
+  ];
 
   return (
     <section id="simulador" className="py-24 px-6 bg-gradient-to-b from-background to-accent/30">
