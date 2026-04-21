@@ -113,38 +113,45 @@ const Simulator = () => {
             <div className="relative">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 text-xs font-medium mb-4">
                 <Sparkles className="w-3.5 h-3.5" />
-                Investimento total
-              </div>
-              <div className="text-5xl md:text-6xl font-bold tabular-nums mb-1 leading-none">
-                {brlFormat(tier.total)}
-              </div>
-              <div className="text-sm opacity-80 mb-8">pago de forma fracionada nos 4 atos</div>
-
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="rounded-xl bg-white/10 backdrop-blur p-4">
-                  <div className="flex items-center gap-1.5 text-xs opacity-80 mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    Garantia
-                  </div>
-                  <div className="text-lg font-bold">{tier.garantia}</div>
-                </div>
-                <div className="rounded-xl bg-white/10 backdrop-blur p-4">
-                  <div className="flex items-center gap-1.5 text-xs opacity-80 mb-1">
-                    <TrendingUp className="w-3.5 h-3.5" />
-                    Economia
-                  </div>
-                  <div className="text-lg font-bold">{savingsPct}%</div>
-                </div>
+                Investimento por candidato
               </div>
 
-              <div className="rounded-xl bg-white/10 backdrop-blur p-4 text-sm">
-                <div className="opacity-80 mb-1">Consultoria tradicional (~3x salário)</div>
-                <div className="flex items-baseline justify-between">
-                  <span className="line-through opacity-70 tabular-nums">{brlFormat(traditionalCost)}</span>
-                  <span className="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded-full">
-                    Você economiza {brlFormat(Math.max(0, savings))}
-                  </span>
+              <div className="space-y-3 mb-6">
+                {perCandidate.map((p) => {
+                  const perCand = Math.round(p.total / p.count);
+                  return (
+                    <div key={p.key} className="rounded-xl bg-white/10 backdrop-blur p-4">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <div className="text-xs font-semibold opacity-90">
+                          {p.label} · {p.title}
+                        </div>
+                        <div className="inline-flex items-center gap-1 text-[11px] bg-white/20 px-2 py-0.5 rounded-full">
+                          <Users className="w-3 h-3" />
+                          {p.count} {p.count === 1 ? "profissional" : "profissionais"}
+                        </div>
+                      </div>
+                      <div className="flex items-baseline justify-between">
+                        <div className="text-2xl font-bold tabular-nums leading-none">
+                          {brlFormat(perCand)}
+                        </div>
+                        <div className="text-[11px] opacity-75">por candidato</div>
+                      </div>
+                      <div className="text-[11px] opacity-70 mt-1">{p.note}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="rounded-xl bg-white/10 backdrop-blur p-4 flex items-center justify-between">
+                <div className="flex items-center gap-1.5 text-xs opacity-90">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  Garantia
                 </div>
+                <div className="text-base font-bold">{tier.garantia}</div>
+              </div>
+
+              <div className="mt-3 text-[11px] opacity-75 leading-relaxed">
+                Nos atos 1 e 2 você pode contratar quantos profissionais quiser da lista entregue.
               </div>
 
               {salary > 35000 && (
