@@ -6,6 +6,7 @@ import Services from "@/components/harpio/Services";
 import Technology from "@/components/harpio/Technology";
 import Investment from "@/components/harpio/Investment";
 import Simulator from "@/components/harpio/Simulator";
+import CreditPackages from "@/components/harpio/CreditPackages";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Technology />
       <Investment />
       <Simulator />
+      <CreditPackages />
     </main>
   );
 };
