@@ -121,7 +121,11 @@ const Technology = () => {
                     <span className="font-semibold">{c.company}</span>
                     <span className="text-muted-foreground"> · {c.role}</span>
                   </p>
-                  <button className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border bg-background hover:bg-muted/40 mb-3">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(true)}
+                    className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border bg-background hover:bg-muted/40 mb-3"
+                  >
                     <Linkedin className="w-3 h-3 text-[#0A66C2]" />
                     VER PERFIL
                     <ArrowUpRight className="w-3 h-3" />
