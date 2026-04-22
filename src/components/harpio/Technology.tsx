@@ -25,10 +25,10 @@ const Technology = () => {
 
   const pipeline = [
     { stage: "Mapeados", count: "300+", pct: 100, sub: "100% do universo-alvo", color: "from-violet-500 to-fuchsia-500" },
-    { stage: "Abordados", count: "90", pct: 30, sub: "30% em até 48h", color: "from-fuchsia-500 to-pink-500" },
-    { stage: "Engajados", count: "20", pct: 22, sub: "20–22% de conversão", color: "from-pink-500 to-rose-500" },
+    { stage: "Abordados", count: "90", pct: 30, sub: "30% dos mapeados · em até 48h", color: "from-fuchsia-500 to-pink-500" },
+    { stage: "Engajados", count: "20", pct: 22, sub: "20–22% dos abordados", color: "from-pink-500 to-rose-500" },
     { stage: "Entrevistados", count: "10", pct: 50, sub: "50% dos engajados", color: "from-rose-500 to-amber-500" },
-    { stage: "Finalistas", count: "3–5", pct: 45, sub: "40–50% qualificados", color: "from-amber-500 to-orange-500" },
+    { stage: "Finalistas", count: "3–5", pct: 45, sub: "40–50% dos entrevistados", color: "from-amber-500 to-orange-500" },
   ];
 
   return (
