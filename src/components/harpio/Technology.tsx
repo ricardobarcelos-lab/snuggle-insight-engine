@@ -200,6 +200,16 @@ const Technology = () => {
           </div>
         </div>
       </div>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl">Já contratou o seu plano Harpio Mind?</DialogTitle>
+            <DialogDescription>
+              O acesso aos perfis completos dos candidatos é exclusivo para clientes com plano ativo.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
