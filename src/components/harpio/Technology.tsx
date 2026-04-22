@@ -182,13 +182,17 @@ const Technology = () => {
                     </div>
                     <span className="text-sm font-bold tabular-nums">{s.count}</span>
                   </div>
-                  <div className="h-8 rounded-lg bg-muted overflow-hidden">
+                  <div className="relative h-8 rounded-lg bg-muted overflow-hidden">
                     <div
-                      className={`h-full bg-gradient-to-r ${s.color} flex items-center justify-end pr-3`}
+                      className={`h-full bg-gradient-to-r ${s.color}`}
                       style={{ width: `${s.width}%` }}
+                    />
+                    <span
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold tabular-nums text-[hsl(270_85%_55%)]"
+                      style={{ textShadow: "0 0 8px hsl(280 90% 80% / 0.9), 0 0 2px hsl(280 90% 90% / 0.8)" }}
                     >
-                      <span className="text-[10px] font-semibold text-white">{s.pct}%</span>
-                    </div>
+                      {s.pct}%
+                    </span>
                   </div>
                 </div>
               ))}
