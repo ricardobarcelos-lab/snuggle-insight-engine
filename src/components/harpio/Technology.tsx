@@ -33,11 +33,11 @@ const Technology = () => {
   ];
 
   const pipeline = [
-    { stage: "Mapeados", count: "300+", pct: 100, sub: "100% do universo-alvo", color: "from-violet-500 to-fuchsia-500" },
-    { stage: "Abordados", count: "90", pct: 30, sub: "30% dos mapeados · em até 48h", color: "from-fuchsia-500 to-pink-500" },
-    { stage: "Engajados", count: "20", pct: 22, sub: "20–22% dos abordados", color: "from-pink-500 to-rose-500" },
-    { stage: "Entrevistados", count: "10", pct: 50, sub: "50% dos engajados", color: "from-rose-500 to-amber-500" },
-    { stage: "Finalistas", count: "3–5", pct: 45, sub: "40–50% dos entrevistados", color: "from-amber-500 to-orange-500" },
+    { stage: "Mapeados", count: "300+", pct: 100, width: 100, sub: "100% do universo-alvo", color: "from-violet-500 to-fuchsia-500" },
+    { stage: "Abordados", count: "90", pct: 30, width: 30, sub: "30% dos mapeados · em até 48h", color: "from-fuchsia-500 to-pink-500" },
+    { stage: "Engajados", count: "20", pct: 22, width: 6.6, sub: "20–22% dos abordados", color: "from-pink-500 to-rose-500" },
+    { stage: "Entrevistados", count: "10", pct: 50, width: 3.3, sub: "50% dos engajados", color: "from-rose-500 to-amber-500" },
+    { stage: "Finalistas", count: "3–5", pct: 45, width: 1.5, sub: "40–50% dos entrevistados", color: "from-amber-500 to-orange-500" },
   ];
 
   return (
@@ -185,7 +185,7 @@ const Technology = () => {
                   <div className="h-8 rounded-lg bg-muted overflow-hidden">
                     <div
                       className={`h-full bg-gradient-to-r ${s.color} flex items-center justify-end pr-3`}
-                      style={{ width: `${s.pct}%` }}
+                      style={{ width: `${s.width}%` }}
                     >
                       <span className="text-[10px] font-semibold text-white">{s.pct}%</span>
                     </div>
