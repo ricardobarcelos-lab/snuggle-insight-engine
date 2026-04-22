@@ -1,6 +1,15 @@
 import { Brain, Cpu, Database, GitBranch, Linkedin, Sparkles, TrendingUp, ArrowUpRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useState } from "react";
 
 const Technology = () => {
+  const [open, setOpen] = useState(false);
   const candidates = [
     {
       code: "G03·A",
