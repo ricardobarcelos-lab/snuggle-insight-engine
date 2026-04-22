@@ -1,22 +1,35 @@
-import { Brain, Cpu, Database, GitBranch, Sparkles, TrendingUp } from "lucide-react";
+import { Brain, Cpu, Database, GitBranch, Linkedin, Sparkles, TrendingUp } from "lucide-react";
 
 const Technology = () => {
   const candidates = [
-    { name: "Ana Ribeiro", role: "Head of TA", score: 96, match: "Excelente" },
-    { name: "Carlos Mendes", role: "Sr. Recruiter", score: 91, match: "Forte" },
-    { name: "Júlia Santos", role: "Talent Lead", score: 88, match: "Forte" },
-    { name: "Rafael Costa", role: "TA Manager", score: 84, match: "Bom" },
+    {
+      code: "G03·A",
+      score: 90,
+      company: "Stone",
+      role: "Senior Software Engineer · 5+ anos Elixir, 3+ anos Golang · Vitória, ES",
+      fit: "Stone é referência em infra de adquirência no Brasil, com volume transacional massivo. Combinação Elixir + Go traz mentalidade de sistemas distribuídos.",
+      attention: "Stone paga acima da média. Atratividade do MB tende a ganhar tração por escopo (cripto + RWA) mais do que por pacote.",
+      tags: ["TOP 5 ADERÊNCIA", "ADQUIRÊNCIA", "PACOTE: R$ 22–28K"],
+      featured: true,
+    },
+    {
+      code: "G04·A",
+      score: 86,
+      company: "CI&T (alocado Itaú Unibanco)",
+      role: "Senior Software Engineer · Bank Modernization · Java, Golang · 9+ anos",
+      fit: "9+ anos em modernização bancária — exatamente o tipo de exposição que prepara para o equilíbrio entre legado e greenfield. 2x AWS Certified.",
+      attention: "Modelo de alocação via CI&T pode influenciar pertencimento ao time. Validar disponibilidade real para vínculo CLT direto.",
+      tags: ["ITAÚ VIA CI&T", "BANK MODERNIZATION", "PACOTE: R$ 18–24K"],
+    },
   ];
 
   const pipeline = [
-    { stage: "Mapeados", count: 312, color: "from-violet-500 to-fuchsia-500" },
-    { stage: "Abordados", count: 187, color: "from-fuchsia-500 to-pink-500" },
-    { stage: "Engajados", count: 94, color: "from-pink-500 to-rose-500" },
-    { stage: "Entrevistados", count: 28, color: "from-rose-500 to-amber-500" },
-    { stage: "Shortlist", count: 5, color: "from-amber-500 to-orange-500" },
+    { stage: "Mapeados", count: "300+", pct: 100, sub: "100% do universo-alvo", color: "from-violet-500 to-fuchsia-500" },
+    { stage: "Abordados", count: "90", pct: 30, sub: "30% em até 48h", color: "from-fuchsia-500 to-pink-500" },
+    { stage: "Engajados", count: "20", pct: 22, sub: "20–22% de conversão", color: "from-pink-500 to-rose-500" },
+    { stage: "Entrevistados", count: "10", pct: 50, sub: "50% dos engajados", color: "from-rose-500 to-amber-500" },
+    { stage: "Finalistas", count: "3–5", pct: 45, sub: "40–50% qualificados", color: "from-amber-500 to-orange-500" },
   ];
-
-  const maxPipeline = pipeline[0].count;
 
   return (
     <section id="tecnologia" className="py-24 px-6 bg-gradient-to-b from-background via-muted/30 to-background">
