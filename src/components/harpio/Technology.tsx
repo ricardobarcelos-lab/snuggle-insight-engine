@@ -1,6 +1,15 @@
 import { Brain, Cpu, Database, GitBranch, Linkedin, Sparkles, TrendingUp, ArrowUpRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useState } from "react";
 
 const Technology = () => {
+  const [open, setOpen] = useState(false);
   const candidates = [
     {
       code: "G03·A",
@@ -112,7 +121,11 @@ const Technology = () => {
                     <span className="font-semibold">{c.company}</span>
                     <span className="text-muted-foreground"> · {c.role}</span>
                   </p>
-                  <button className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border bg-background hover:bg-muted/40 mb-3">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(true)}
+                    className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border bg-background hover:bg-muted/40 mb-3"
+                  >
                     <Linkedin className="w-3 h-3 text-[#0A66C2]" />
                     VER PERFIL
                     <ArrowUpRight className="w-3 h-3" />
@@ -187,6 +200,16 @@ const Technology = () => {
           </div>
         </div>
       </div>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl">Já contratou o seu plano Harpio Mind?</DialogTitle>
+            <DialogDescription>
+              O acesso aos perfis completos dos candidatos é exclusivo para clientes com plano ativo.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
