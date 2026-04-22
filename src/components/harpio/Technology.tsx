@@ -1,4 +1,4 @@
-import { Brain, Cpu, Database, GitBranch, Linkedin, Sparkles, TrendingUp } from "lucide-react";
+import { Brain, Cpu, Database, GitBranch, Linkedin, Sparkles, TrendingUp, ArrowUpRight } from "lucide-react";
 
 const Technology = () => {
   const candidates = [
@@ -76,28 +76,74 @@ const Technology = () => {
               </div>
               <span className="text-xs text-muted-foreground">atualizado agora</span>
             </div>
-            <div className="p-5 space-y-3">
+            <div className="p-5 space-y-4">
               {candidates.map((c) => (
-                <div key={c.name} className="flex items-center gap-4 p-3 rounded-xl border bg-background">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-glow text-primary-foreground flex items-center justify-center font-semibold text-sm">
-                    {c.name.split(" ").map((n) => n[0]).join("")}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="text-sm font-medium truncate">{c.name}</p>
-                      <span className="text-xs text-muted-foreground">{c.match}</span>
+                <div
+                  key={c.code}
+                  className={`rounded-2xl border bg-background p-4 ${
+                    c.featured ? "ring-1 ring-primary/30 shadow-sm" : ""
+                  }`}
+                >
+                  {/* Header bar */}
+                  <div className="flex items-stretch gap-3 mb-3">
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-foreground text-background flex-1 min-w-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                      <span className="text-[11px] font-bold tracking-wider whitespace-nowrap">
+                        CAND · {c.code}
+                      </span>
+                      <span className="h-4 w-px bg-background/30" />
+                      <span className="text-[10px] font-semibold tracking-wider text-primary truncate">
+                        IDENTIDADE RESERVADA
+                      </span>
                     </div>
-                    <p className="text-xs text-muted-foreground truncate">{c.role}</p>
-                    <div className="mt-2 h-1.5 rounded-full bg-muted overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-primary to-primary-glow"
-                        style={{ width: `${c.score}%` }}
-                      />
+                    <div className="text-right flex flex-col justify-center">
+                      <div className="leading-none">
+                        <span className="text-2xl font-extrabold text-primary tabular-nums">{c.score}</span>
+                        <span className="text-xs font-semibold text-muted-foreground">/100</span>
+                      </div>
+                      <p className="text-[9px] font-bold tracking-wider text-muted-foreground mt-0.5">
+                        SCORE HARPIO
+                      </p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-primary">{c.score}</p>
-                    <p className="text-[10px] text-muted-foreground -mt-1">match</p>
+
+                  {/* Role */}
+                  <p className="text-sm leading-snug mb-2">
+                    <span className="font-semibold">{c.company}</span>
+                    <span className="text-muted-foreground"> · {c.role}</span>
+                  </p>
+                  <button className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border bg-background hover:bg-muted/40 mb-3">
+                    <Linkedin className="w-3 h-3 text-[#0A66C2]" />
+                    VER PERFIL
+                    <ArrowUpRight className="w-3 h-3" />
+                  </button>
+
+                  {/* Two columns */}
+                  <div className="grid grid-cols-2 gap-4 pt-3 border-t">
+                    <div>
+                      <p className="text-[10px] font-bold tracking-wider text-primary mb-1">LEITURA DE FIT</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{c.fit}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold tracking-wider text-primary mb-1">PONTO DE ATENÇÃO</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{c.attention}</p>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t">
+                    {c.tags.map((t, i) => (
+                      <span
+                        key={t}
+                        className={`text-[10px] font-semibold tracking-wider px-2 py-1 rounded-md ${
+                          i === 0 && c.featured
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-foreground"
+                        }`}
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -117,24 +163,25 @@ const Technology = () => {
               {pipeline.map((s) => (
                 <div key={s.stage}>
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-sm font-medium">{s.stage}</span>
+                    <div>
+                      <span className="text-sm font-medium">{s.stage}</span>
+                      <span className="text-[11px] text-muted-foreground ml-2">{s.sub}</span>
+                    </div>
                     <span className="text-sm font-bold tabular-nums">{s.count}</span>
                   </div>
                   <div className="h-8 rounded-lg bg-muted overflow-hidden">
                     <div
                       className={`h-full bg-gradient-to-r ${s.color} flex items-center justify-end pr-3`}
-                      style={{ width: `${(s.count / maxPipeline) * 100}%` }}
+                      style={{ width: `${s.pct}%` }}
                     >
-                      <span className="text-[10px] font-semibold text-white">
-                        {Math.round((s.count / maxPipeline) * 100)}%
-                      </span>
+                      <span className="text-[10px] font-semibold text-white">{s.pct}%</span>
                     </div>
                   </div>
                 </div>
               ))}
               <div className="pt-3 mt-2 border-t flex items-center justify-between text-xs text-muted-foreground">
-                <span>Conversão mapeados → shortlist</span>
-                <span className="font-semibold text-primary">1.6%</span>
+                <span>Conversão mapeados → finalistas</span>
+                <span className="font-semibold text-primary">~1,5%</span>
               </div>
             </div>
           </div>
