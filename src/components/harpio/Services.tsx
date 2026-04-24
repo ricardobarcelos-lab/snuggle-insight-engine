@@ -12,6 +12,7 @@ import {
 type Ato = {
   id: string;
   number: string;
+  label: string;
   title: string;
   subtitle: string;
   description: string;
@@ -25,6 +26,7 @@ const atos: Ato[] = [
   {
     id: "ato-1",
     number: "01",
+    label: "01 ATO _ Harpio Mind",
     title: "Mapeamento Estratégico",
     subtitle: "Candidatos interessados e aderentes",
     description:
@@ -37,6 +39,7 @@ const atos: Ato[] = [
   {
     id: "ato-2",
     number: "02",
+    label: "02 ATO - Harpio Srint",
     title: "Pré-entrevista Qualificada",
     subtitle: "Script validado pelo cliente",
     description:
@@ -49,6 +52,7 @@ const atos: Ato[] = [
   {
     id: "ato-3",
     number: "03",
+    label: "03 ATO - Harpio Expert",
     title: "Shortlist & Negociação",
     subtitle: "Headhunter expert conduzindo o processo",
     description:
@@ -61,6 +65,7 @@ const atos: Ato[] = [
   {
     id: "ato-4",
     number: "04",
+    label: "ATO FINAL _ Complition Expert",
     title: "Placement",
     subtitle: "Termos finais e contratação",
     description:
@@ -126,7 +131,7 @@ const Services = () => {
                   </span>
                 </div>
                 <div className="relative mt-5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  {a.number === "04" ? "ATO FINAL" : `${a.number} ATO`}
+                  {a.label}
                 </div>
                 <h3 className="relative mt-1 text-xl font-bold text-foreground">{a.title}</h3>
                 <p className="relative mt-1.5 text-sm text-muted-foreground">{a.subtitle}</p>
