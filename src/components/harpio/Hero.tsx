@@ -96,12 +96,12 @@ const Hero = () => {
             </div>
 
             {/* Matching card */}
-            <div className="absolute bottom-0 right-0 w-[320px] rounded-2xl bg-dark-card p-6 shadow-elevated">
-              <div className="mb-4 text-sm font-semibold text-dark-card-foreground">
+            <div className="absolute bottom-0 right-0 w-[416px] rounded-2xl bg-dark-card p-8 shadow-elevated">
+              <div className="mb-5 text-base font-semibold text-dark-card-foreground">
                 Matching de Candidatos
               </div>
-              <div className="flex items-center gap-5">
-                <div className="relative h-24 w-24 shrink-0">
+              <div className="flex items-center gap-6">
+                <div className="relative h-32 w-32 shrink-0">
                   <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
                     <circle cx="50" cy="50" r="42" fill="none" stroke="hsl(0 0% 100% / 0.08)" strokeWidth="8" />
                     <circle cx="50" cy="50" r="42" fill="none" stroke="hsl(340 90% 60%)" strokeWidth="8"
@@ -114,18 +114,18 @@ const Hero = () => {
                       strokeDasharray={`${0.86 * 138} 138`} strokeLinecap="round" />
                   </svg>
                 </div>
-                <div className="space-y-1.5 text-xs">
+                <div className="space-y-2 text-sm">
                   <div>
-                    <div className="text-[10px] uppercase tracking-wider text-dark-card-foreground/50">Técnico</div>
-                    <div><span className="text-base font-bold text-rose-400">89</span><span className="text-rose-400/70">%</span></div>
+                    <div className="text-[13px] uppercase tracking-wider text-dark-card-foreground/50">Técnico</div>
+                    <div><span className="text-xl font-bold text-rose-400">89</span><span className="text-rose-400/70">%</span></div>
                   </div>
                   <div>
-                    <div className="text-[10px] uppercase tracking-wider text-dark-card-foreground/50">Comportamental</div>
-                    <div><span className="text-base font-bold text-lime-400">88</span><span className="text-lime-400/70">%</span></div>
+                    <div className="text-[13px] uppercase tracking-wider text-dark-card-foreground/50">Comportamental</div>
+                    <div><span className="text-xl font-bold text-lime-400">88</span><span className="text-lime-400/70">%</span></div>
                   </div>
                   <div>
-                    <div className="text-[10px] uppercase tracking-wider text-dark-card-foreground/50">Cultural</div>
-                    <div><span className="text-base font-bold text-sky-400">86</span><span className="text-sky-400/70">%</span></div>
+                    <div className="text-[13px] uppercase tracking-wider text-dark-card-foreground/50">Cultural</div>
+                    <div><span className="text-xl font-bold text-sky-400">86</span><span className="text-sky-400/70">%</span></div>
                   </div>
                 </div>
               </div>
