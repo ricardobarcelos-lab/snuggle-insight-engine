@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import HarpioLogo from "./HarpioLogo";
+import cornerstoneLogo from "@/assets/cornerstone-logo.png";
 
 const Hero = () => {
   return (
@@ -8,6 +9,14 @@ const Hero = () => {
         {/* Logo */}
         <div className="mb-16 flex items-center gap-5 md:mb-24">
           <HarpioLogo />
+          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            em parceria
+          </span>
+          <img
+            src={cornerstoneLogo}
+            alt="Cornerstone"
+            className="h-8 w-auto object-contain"
+          />
         </div>
 
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
