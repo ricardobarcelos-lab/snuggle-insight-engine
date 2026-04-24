@@ -55,7 +55,7 @@ const Hero = () => {
               </div>
 
               <button className="group relative inline-flex items-center justify-center rounded-full bg-gradient-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-button transition-smooth hover:scale-[1.02] hover:shadow-glow">
-                Acessar proposta
+                Acessar o estudo da sua vaga
               </button>
             </div>
           </div>
