@@ -31,7 +31,7 @@ const atos: Ato[] = [
       "Hunting ativo em bases proprietárias e mercado, qualificando perfis aderentes ao DNA da vaga e validando interesse real na oportunidade.",
     icon: Map,
     accent: "from-violet-500 to-fuchsia-500",
-    highlights: ["Pesquisa de mercado", "Validação de interesse", "Agendamento de entrevistas"],
+    highlights: ["Pesquisa de mercado", "Validação de interesse", "Dados de contato"],
     count: "20 profissionais",
   },
   {
