@@ -89,10 +89,14 @@ const Technology = () => {
               {candidates.map((c) => (
                 <div
                   key={c.code}
-                  className={`rounded-2xl border bg-background p-4 ${
+                  className={`relative overflow-hidden rounded-2xl border bg-background p-4 ${
                     c.featured ? "ring-1 ring-primary/30 shadow-sm" : ""
                   }`}
                 >
+                  {/* Ribbon */}
+                  <div className="absolute -right-10 top-4 rotate-45 bg-gradient-to-r from-primary to-fuchsia-500 text-primary-foreground text-[10px] font-bold tracking-wider px-10 py-0.5 shadow-md z-10">
+                    MODELO
+                  </div>
                   {/* Header bar */}
                   <div className="flex items-stretch gap-3 mb-3">
                     <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-foreground text-background flex-1 min-w-0">
