@@ -34,10 +34,10 @@ const Technology = () => {
 
   const pipeline = [
     { stage: "Mapeados",     count: "300+", pct: 100, width: 100,  sub: "Universo-alvo completo",        conv: "base",          color: "from-violet-500 to-fuchsia-500" },
-    { stage: "Abordados",    count: "90",   pct: 30,  width: 62,   sub: "Contato em até 48h",             conv: "30% dos mapeados",    color: "from-fuchsia-500 to-pink-500" },
-    { stage: "Engajados",    count: "20",   pct: 22,  width: 40,   sub: "Resposta qualificada",           conv: "22% dos abordados",   color: "from-pink-500 to-rose-500" },
-    { stage: "Entrevistados",count: "10",   pct: 50,  width: 26,   sub: "Entrevista técnica + fit",       conv: "50% dos engajados",   color: "from-rose-500 to-amber-500" },
-    { stage: "Finalistas",   count: "3–5",  pct: 45,  width: 14,   sub: "Shortlist para decisão",         conv: "45% dos entrevistados", color: "from-amber-500 to-orange-500" },
+    { stage: "Abordados",    count: "90",   pct: 30,  width: 82,   sub: "Contato em até 48h",             conv: "30% dos mapeados",    color: "from-fuchsia-500 to-pink-500" },
+    { stage: "Engajados",    count: "20",   pct: 22,  width: 64,   sub: "Resposta qualificada",           conv: "22% dos abordados",   color: "from-pink-500 to-rose-500" },
+    { stage: "Entrevistados",count: "10",   pct: 50,  width: 48,   sub: "Entrevista técnica + fit",       conv: "50% dos engajados",   color: "from-rose-500 to-amber-500" },
+    { stage: "Finalistas",   count: "3–5",  pct: 45,  width: 32,   sub: "Shortlist para decisão",         conv: "45% dos entrevistados", color: "from-amber-500 to-orange-500" },
   ];
 
   return (
@@ -176,96 +176,77 @@ const Technology = () => {
               </div>
               <span className="text-xs text-muted-foreground">D+12</span>
             </div>
-            <div className="p-6 bg-gradient-to-b from-background to-muted/20">
+            <div className="relative bg-gradient-to-b from-background to-muted/20">
+              {/* Background glow filling the card */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.12),transparent_65%)]" />
+              </div>
+
               <div className="relative">
-                {/* Subtle radial glow behind funnel */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-56 h-56 rounded-full bg-primary/10 blur-3xl" />
-                </div>
+                {pipeline.map((s, i) => {
+                  const isLast = i === pipeline.length - 1;
+                  return (
+                    <div key={s.stage} className="group relative">
+                      {/* Funnel slice edge-to-edge */}
+                      <div
+                        className={`relative w-full h-20 bg-gradient-to-r ${s.color} flex items-center justify-between px-6 overflow-hidden transition-all duration-300`}
+                        style={{
+                          clipPath: isLast
+                            ? `polygon(${(100 - s.width) / 2}% 0, ${100 - (100 - s.width) / 2}% 0, ${100 - (100 - s.width) / 2 - 6}% 100%, ${(100 - s.width) / 2 + 6}% 100%)`
+                            : `polygon(${(100 - s.width) / 2}% 0, ${100 - (100 - s.width) / 2}% 0, ${100 - (100 - pipeline[i + 1].width) / 2}% 100%, ${(100 - pipeline[i + 1].width) / 2}% 100%)`,
+                        }}
+                      >
+                        {/* Gloss overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-black/20 pointer-events-none" />
+                        {/* Inner highlight line */}
+                        <div className="absolute top-0 left-0 right-0 h-px bg-white/40 pointer-events-none" />
 
-                <div className="relative space-y-1.5">
-                  {pipeline.map((s, i) => {
-                    const isLast = i === pipeline.length - 1;
-                    return (
-                      <div key={s.stage} className="group">
-                        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-                          {/* Left label */}
-                          <div className="text-right pr-1">
-                            <div className="text-[11px] font-bold tracking-wider uppercase text-foreground/80">
-                              {s.stage}
-                            </div>
-                            <div className="text-[10px] text-muted-foreground leading-tight">
-                              {s.sub}
-                            </div>
+                        {/* Left label */}
+                        <div className="relative z-10 text-left">
+                          <div className="text-[11px] font-bold tracking-widest uppercase text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                            {s.stage}
                           </div>
-
-                          {/* Funnel slice */}
-                          <div
-                            className="flex items-center justify-center"
-                            style={{ width: `${s.width}%`, minWidth: "80px", marginInline: "auto" }}
-                          >
-                            <div
-                              className={`relative w-full h-14 bg-gradient-to-r ${s.color} shadow-lg flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]`}
-                              style={{
-                                clipPath: isLast
-                                  ? "polygon(0 0, 100% 0, 85% 100%, 15% 100%)"
-                                  : "polygon(0 0, 100% 0, 92% 100%, 8% 100%)",
-                              }}
-                            >
-                              {/* Shine */}
-                              <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-black/15 pointer-events-none" />
-                              <div className="relative text-center leading-none">
-                                <div className="text-xl font-extrabold text-white tabular-nums drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
-                                  {s.count}
-                                </div>
-                                <div className="text-[9px] font-bold tracking-widest text-white/90 mt-0.5">
-                                  {i === 0 ? "100%" : `${s.pct}%`}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Right conversion pill */}
-                          <div className="pl-1">
-                            {i === 0 ? (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                                topo do funil
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-medium text-muted-foreground">
-                                <span className="w-3 h-px bg-border" />
-                                {s.conv}
-                              </span>
-                            )}
+                          <div className="text-[10px] text-white/85 leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
+                            {s.sub}
                           </div>
                         </div>
 
-                        {/* Connector dots between stages */}
-                        {!isLast && (
-                          <div className="flex justify-center my-0.5">
-                            <div className="flex flex-col items-center gap-0.5">
-                              <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-                              <span className="w-1 h-1 rounded-full bg-muted-foreground/20" />
-                            </div>
+                        {/* Center count */}
+                        <div className="relative z-10 text-center leading-none">
+                          <div className="text-2xl font-extrabold text-white tabular-nums drop-shadow-[0_2px_3px_rgba(0,0,0,0.4)]">
+                            {s.count}
                           </div>
-                        )}
+                        </div>
+
+                        {/* Right percentage */}
+                        <div className="relative z-10 text-right">
+                          <div className="inline-flex items-baseline gap-0.5 px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-sm">
+                            <span className="text-sm font-extrabold tabular-nums text-white">
+                              {i === 0 ? "100" : s.pct}
+                            </span>
+                            <span className="text-[10px] font-bold text-white/90">%</span>
+                          </div>
+                          <div className="text-[9px] text-white/80 font-medium mt-0.5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
+                            {i === 0 ? "topo do funil" : s.conv}
+                          </div>
+                        </div>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Footer stats */}
-              <div className="mt-6 pt-4 border-t grid grid-cols-3 gap-3">
-                <div className="text-center">
+              {/* Footer stats — edge to edge */}
+              <div className="relative border-t grid grid-cols-3 bg-card">
+                <div className="text-center py-4 px-2">
                   <div className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase">Topo</div>
                   <div className="text-base font-extrabold tabular-nums text-foreground">300+</div>
                 </div>
-                <div className="text-center border-x">
+                <div className="text-center py-4 px-2 border-x">
                   <div className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase">Shortlist</div>
                   <div className="text-base font-extrabold tabular-nums text-foreground">3–5</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center py-4 px-2">
                   <div className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase">Conversão</div>
                   <div className="text-base font-extrabold tabular-nums bg-gradient-to-r from-primary to-fuchsia-500 bg-clip-text text-transparent">
                     ~1,5%
