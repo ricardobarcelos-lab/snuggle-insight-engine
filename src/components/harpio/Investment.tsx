@@ -50,7 +50,7 @@ const Investment = () => {
                 <TableHead className="font-semibold text-foreground">Salário</TableHead>
                 <TableHead className="font-semibold text-foreground text-right">1º ATO</TableHead>
                 <TableHead className="font-semibold text-foreground text-right">2º ATO</TableHead>
-                <TableHead className="font-semibold text-foreground text-right">3º ATO</TableHead>
+                <TableHead className="font-semibold text-foreground text-right whitespace-pre-line">{"3º ATO\n"}</TableHead>
                 <TableHead className="font-semibold text-foreground text-right">4º ATO</TableHead>
                 <TableHead className="font-semibold text-primary text-right">Total</TableHead>
                 <TableHead className="font-semibold text-foreground text-center">Garantia</TableHead>
