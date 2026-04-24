@@ -98,6 +98,9 @@ const Simulator = () => {
                 );
               })}
             </div>
+            <p className="mt-6 text-xs text-muted-foreground leading-relaxed border-t pt-4">
+              <span className="font-semibold text-foreground">Flexibilidade total:</span> cada ato pode ser contratado individualmente, conforme a necessidade da sua operação — você avança somente nas etapas que fizerem sentido.
+            </p>
           </div>
 
           {/* Result card */}
