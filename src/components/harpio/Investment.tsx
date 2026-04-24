@@ -31,7 +31,7 @@ const Investment = () => {
         <div className="grid md:grid-cols-3 gap-4 mb-10">
           {[
             "Pagamento dividido em 4 etapas — sem risco antecipado",
-            "Garantia de reposição de 1 a 6 meses",
+            "Garantia de reposição de 1 a 6 meses * Incluso no modelo Expert",
             "Até 10x mais econômico que consultorias tradicionais",
           ].map((h) => (
             <div key={h} className="flex items-start gap-3 p-4 rounded-xl border bg-card">
